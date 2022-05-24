@@ -27,7 +27,7 @@
 
 .start_name{
     font-size:1.5rem;
-    margin : 0.5rem;
+    margin : 1.25rem;
 }
 
 body{
@@ -42,11 +42,12 @@ body{
     align-items: center;
     background-color: #333;
     color:white;
+    padding: 0px 150px 0px 100px;
 }
 
 .navbar_links ul{
     margin:0;
-    padding:0;
+    /*padding:0;*/
     display :flex;
 }
 
@@ -57,37 +58,85 @@ body{
 .navbar_links li a{
     text-decoration: none;
     color:white;
-    padding:1.25rem;
+    padding:1.25rem 1.75rem 1.25rem 1.75rem;
     display:block;
+    letter-spacing: 1px;
+    transition: all 0.3s ease; 
 }
 
 .navbar_links li:hover{
     background-color: #555;
+    margin:0px 20px;
+    font-size: 12px;
 }
 
 .toggle-button{
     position: absolute;
-    top: 0.75rem;
+    /* margin:0px 5px; */
+    top: 1.5rem;
     right:0.75rem;
     display:none;
     flex-direction: column;
     justify-content: space-between;
-    width:21px;
-    height: 21px;
+    width: 25px;
+    height: 25px;
 }
 
 .toggle-button .bar{
     height:3px;
     width: 100px;
+    margin: 0px 5px;
     background-color: white;
     border-radius: 10px;
 }
+#click{
+    display: none;
+}
 
-@media(max-width:700px){
+@media(max-width:786px){
     .toggle-button{
         display:flex;
     }
-    .navbar_links{
+    /*.toggle-button .bar{
+        display:flex;
+    }
+     .navbar_links{
         display: none;
+    } */
+    
+    .navbar_links ul{
+        position:fixed;
+        top: 80px;
+        left: 0%;
+        text-align: center;
+        padding: 0px;
+        background-color: #111;
+        height: 100vh;
+        width: 100%;
+        display:block;
+        transition: all 0.3s ease;
+    }
+    #click:checked ~ .navbar_links ul i{
+        left: -100%;
+    }
+    /* .navbar_links li:hover a{
+        margin: 40px 0;
+        transition: 1s;
+        color: black;
+        /* background-color: #555; 
+        background-color: white;
+    } */
+   
+    #click:checked ~ .toggle-button i:before{
+        content: '\f00d';
+    }
+}
+
+@media(max-width:1100px){
+    .nav_bar{
+        padding: 0px 100px 0px 50px;
+    }
+    .navbar_links li a{
+        padding:1rem;
     }
 }
